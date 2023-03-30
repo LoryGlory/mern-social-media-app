@@ -23,11 +23,12 @@ const postSchema = mongoose.Schema(
       of: Boolean,
     },
     comments: {
-      types: Array,
+      type: Array,
       default: [],
     },
-    timestamps: true,
-  });
+  },
+  {timestamps: true},
+);
 
 const Post = mongoose.model('Post', postSchema);
 
