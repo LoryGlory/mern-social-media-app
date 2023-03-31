@@ -56,7 +56,7 @@ const NavBar = () => {
               cursor: 'pointer',
             },
           }}>
-          Sociopedia
+          Socioedia
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween background={neutralLight} borderRadius='9px' gap='3rem' padding='0.1rem 1.5rem'>
@@ -65,7 +65,7 @@ const NavBar = () => {
                 <Search />
               </IconButton>
             </InputBase>
-          </FlexBetween>}
+          </FlexBetween>)}
       </FlexBetween>
       {/*  desktop nav*/}
       {isNonMobileScreens ? (
