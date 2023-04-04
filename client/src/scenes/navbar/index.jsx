@@ -39,8 +39,8 @@ const NavBar = () => {
   const primaryLight = theme.palette.primary.light;
   const alt = theme.palette.background.alt;
 
-  const fullName = 'Test Test';
-  // const fullName = `${user.firstName} ${user.lastName}`;
+  // const fullName = 'Test Test';
+  const fullName = `${user.firstName} ${user.lastName}`;
 
 
   return (
