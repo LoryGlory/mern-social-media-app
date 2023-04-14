@@ -107,7 +107,7 @@ Use one of the test users to see the authenticated version:
    User: test2@test.test
    Password: test
    ```
-The test users go from test1@test.test to test7@test.test, the password is always test.
+The test users are test1@test.test to test7@test.test, the password is always test.
 
 To get a local copy up and running follow these simple steps.
 
