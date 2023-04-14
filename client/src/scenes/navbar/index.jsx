@@ -21,27 +21,25 @@ import {
   Close,
 } from '@mui/icons-material';
 import {useDispatch, useSelector} from 'react-redux';
-import {setMode, setLogout} from '../../state';
+import {setMode, setLogout} from 'state';
 import {useNavigate} from 'react-router-dom';
-import FlexBetween from '../../components/FlexBetween';
+import FlexBetween from 'components/FlexBetween';
 
-const NavBar = () => {
+const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
-  const isNonMobileScreens = useMediaQuery('(min-width:1000px');
+  const isNonMobileScreens = useMediaQuery('(min-width: 1000px)');
 
   const theme = useTheme();
   const neutralLight = theme.palette.neutral.light;
-  const dark = theme.palette.dark;
+  const dark = theme.palette.neutral.dark;
   const background = theme.palette.background.default;
   const primaryLight = theme.palette.primary.light;
   const alt = theme.palette.background.alt;
 
-  // const fullName = 'Test Test';
   const fullName = `${user.firstName} ${user.lastName}`;
-
 
   return (
     <FlexBetween padding='1rem 6%' backgroundColor={alt}>
@@ -56,22 +54,29 @@ const NavBar = () => {
               color: primaryLight,
               cursor: 'pointer',
             },
-          }}>
-          HiveMind
+          }}
+        >
+          Sociopedia
         </Typography>
         {isNonMobileScreens && (
-          <FlexBetween background={neutralLight} borderRadius='9px' gap='3rem' padding='0.1rem 1.5rem'>
-            <InputBase placeholder='Search...'>
-              <IconButton>
-                <Search />
-              </IconButton>
-            </InputBase>
-          </FlexBetween>)}
+          <FlexBetween
+            backgroundColor={neutralLight}
+            borderRadius='9px'
+            gap='3rem'
+            padding='0.1rem 1.5rem'
+          >
+            <InputBase placeholder='Search...' />
+            <IconButton>
+              <Search />
+            </IconButton>
+          </FlexBetween>
+        )}
       </FlexBetween>
-      {/*  desktop nav*/}
+
+      {/* DESKTOP NAV */}
       {isNonMobileScreens ? (
         <FlexBetween gap='2rem'>
-          <IconButton onClick={() => dispatch(setMode())} sx={{fontSize: '25px'}}>
+          <IconButton onClick={() => dispatch(setMode())}>
             {theme.palette.mode === 'dark' ? (
               <DarkMode sx={{fontSize: '25px'}} />
             ) : (
@@ -83,7 +88,7 @@ const NavBar = () => {
           <Help sx={{fontSize: '25px'}} />
           <FormControl variant='standard' value={fullName}>
             <Select
-              variant={fullName}
+              value={fullName}
               sx={{
                 backgroundColor: neutralLight,
                 width: '150px',
@@ -102,17 +107,20 @@ const NavBar = () => {
               <MenuItem value={fullName}>
                 <Typography>{fullName}</Typography>
               </MenuItem>
-              <MenuItem onClick={() => dispatch(setLogout())}>
-                Log Out
-              </MenuItem>
+              <MenuItem onClick={() => navigate(`/saved/${user._id}`)}>Saved</MenuItem>
+              <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
             </Select>
           </FormControl>
-        </FlexBetween>) : (
-        <IconButton onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}>
+        </FlexBetween>
+      ) : (
+        <IconButton
+          onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}
+        >
           <Menu />
         </IconButton>
       )}
-      {/*  mobile nav */}
+
+      {/* MOBILE NAV */}
       {!isNonMobileScreens && isMobileMenuToggled && (
         <Box
           position='fixed'
@@ -124,15 +132,27 @@ const NavBar = () => {
           minWidth='300px'
           backgroundColor={background}
         >
-          {/* close icon */}
+          {/* CLOSE ICON */}
           <Box display='flex' justifyContent='flex-end' p='1rem'>
-            <IconButton onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}>
+            <IconButton
+              onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}
+            >
               <Close />
             </IconButton>
           </Box>
-          {/*  menu items */}
-          <FlexBetween display='flex' flexDirection='column' justifyContent='center' alignItems='center' gap='3rem'>
-            <IconButton onClick={() => dispatch(setMode())}>
+
+          {/* MENU ITEMS */}
+          <FlexBetween
+            display='flex'
+            flexDirection='column'
+            justifyContent='center'
+            alignItems='center'
+            gap='3rem'
+          >
+            <IconButton
+              onClick={() => dispatch(setMode())}
+              sx={{fontSize: '25px'}}
+            >
               {theme.palette.mode === 'dark' ? (
                 <DarkMode sx={{fontSize: '25px'}} />
               ) : (
@@ -144,7 +164,7 @@ const NavBar = () => {
             <Help sx={{fontSize: '25px'}} />
             <FormControl variant='standard' value={fullName}>
               <Select
-                variant={fullName}
+                value={fullName}
                 sx={{
                   backgroundColor: neutralLight,
                   width: '150px',
@@ -163,6 +183,7 @@ const NavBar = () => {
                 <MenuItem value={fullName}>
                   <Typography>{fullName}</Typography>
                 </MenuItem>
+                <MenuItem onClick={() => navigate(`/saved/${user._id}`)}>Saved</MenuItem>
                 <MenuItem onClick={() => dispatch(setLogout())}>
                   Log Out
                 </MenuItem>
@@ -171,7 +192,8 @@ const NavBar = () => {
           </FlexBetween>
         </Box>
       )}
-    </FlexBetween>);
+    </FlexBetween>
+  );
 };
 
-export default NavBar;
+export default Navbar;
