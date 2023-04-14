@@ -56,7 +56,7 @@ const Navbar = () => {
             },
           }}
         >
-          Sociopedia
+          Hivemind
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
