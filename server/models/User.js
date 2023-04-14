@@ -24,8 +24,6 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
       min: 5,
-      max: 50,
-      unique: true,
     },
     picturePath: {
       type: String,
@@ -39,11 +37,11 @@ const UserSchema = new mongoose.Schema(
     occupation: String,
     viewedProfile: Number,
     impressions: Number,
+    twitter: String,
+    linkedIn: String,
   },
-  {
-    timestamps: true,
-  });
+  {timestamps: true},
+);
 
 const User = mongoose.model('User', UserSchema);
-
 export default User;
