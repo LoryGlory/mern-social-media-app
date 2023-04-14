@@ -18,7 +18,7 @@ const AdvertWidget = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://sheetdb.io/api/v1/kwecdtehfatvt`);
+      const response = await axios.get(`https://sheetdb.io/api/v1/1ugdj2ozfcbu1`);
       const data = response.data;
       setData(data);
     } catch (error) {
@@ -30,7 +30,7 @@ const AdvertWidget = () => {
     fetchData();
   }, []);
 
-  const slideImages = data.map(item => item.ProductLink);
+  const slideImages = data.map(item => item.productLink);
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -99,11 +99,11 @@ const AdvertWidget = () => {
           opacity: k === currentSlide ? 1 : 0,
         }}>
           <FlexBetween>
-            <Typography variant='h4' component='h4' color={main}>{item.Price}</Typography>
-            <Typography color={medium}><a href='https://www.nike.com/gb/'>Quick Buy</a></Typography>
+            <Typography variant='h4' component='h4' color={main}>{item.price}</Typography>
+            <Typography color={medium}><a href={item.url}>Quick Buy</a></Typography>
           </FlexBetween>
           <Typography color={medium} m='0.5rem 0'>
-            {item.Description}
+            {item.description}
           </Typography>
         </div>
       ))}
