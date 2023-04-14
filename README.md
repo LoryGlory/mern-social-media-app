@@ -196,7 +196,7 @@ LinkedIn: [https://www.linkedin.com/in/laura-roganovic](https://www.linkedin.com
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 
-[linkedin-url]: https://www.linkedin.com/in/laura-roganovic-1a694b207/
+[linkedin-url]: https://www.linkedin.com/in/laura-roganovic/
 
 [product-screenshot]: client/public/screenshot.png
 
