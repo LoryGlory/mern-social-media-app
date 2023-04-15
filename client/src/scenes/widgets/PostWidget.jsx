@@ -43,7 +43,7 @@ const PostWidget = ({
   const [loadcomments, setLoadComments] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost/posts/${postId}/get/comment`, {
+    axios.get(`http://localhost:3001posts/${postId}/get/comment`, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
@@ -60,7 +60,7 @@ const PostWidget = ({
 
 
   const patchLike = async () => {
-    const response = await fetch(`http://localhost/posts/${postId}/like`, {
+    const response = await fetch(`http://localhost:3001posts/${postId}/like`, {
       method: 'PATCH',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -76,7 +76,7 @@ const PostWidget = ({
   const postComment = async () => {
     try {
       const response = await axios.post(
-        `http://localhost/posts/${postId}/comment`,
+        `http://localhost:3001posts/${postId}/comment`,
         {
           userId: loggedInUserId,
           postId: postId,
@@ -144,7 +144,7 @@ const PostWidget = ({
           height='auto'
           alt='post'
           style={{borderRadius: '0.75rem', marginTop: '0.75rem'}}
-          src={`http://localhost/assets/${picturePath}`}
+          src={`http://localhost:3001assets/${picturePath}`}
         />
       )}
 
