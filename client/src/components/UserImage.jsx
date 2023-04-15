@@ -7,7 +7,7 @@ const UserImage = ({image, size = '60px'}) => {
         style={{objectFit: 'cover', borderRadius: '50%'}}
         width={size}
         height={size}
-        src={`${process.env.SERVER_URL}/assets/${image}`}
+        src={`${process.env.REACT_APP_SERVER_URL}/assets/${image}`}
         alt='user'
       />
     </Box>

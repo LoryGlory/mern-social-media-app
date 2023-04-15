@@ -29,7 +29,7 @@ const UserWidget = ({userId, picturePath}) => {
 
 
   const getUser = async () => {
-    const response = await fetch(`${process.env.SERVER_URL}/users/${userId}`, {
+    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/${userId}`, {
       method: 'GET',
       headers: {Authorization: `Bearer ${token}`},
     });
@@ -41,7 +41,7 @@ const UserWidget = ({userId, picturePath}) => {
   const updateUser = async () => {
     try {
       const response = await axios.patch(
-        `${process.env.SERVER_URL}/users/${userId}`,
+        `${process.env.REACT_APP_SERVER_URL}/users/${userId}`,
         {twitter, linkedIn},
         {
           headers: {
