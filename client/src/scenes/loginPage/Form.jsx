@@ -55,7 +55,7 @@ const Form = () => {
   const isLogin = pageType === 'login';
   const isRegister = pageType === 'register';
 
-  const register = async (values, onSubmitProps) => {
+  const register = async (values, onSubmitProps, req) => {
     // this allows us to send form info with image
     const formData = new FormData();
     for (let value in values) {
@@ -64,7 +64,7 @@ const Form = () => {
     formData.append('picturePath', values.picture.name);
 
     const savedUserResponse = await fetch(
-      'http://localhost:3001/auth/register',
+      `${req.protocol}://${req.get('host')}/auth/register`,
       {
         method: 'POST',
         body: formData,
@@ -78,8 +78,8 @@ const Form = () => {
     }
   };
 
-  const login = async (values, onSubmitProps) => {
-    const loggedInResponse = await fetch('http://localhost:3001/auth/login', {
+  const login = async (values, onSubmitProps, req) => {
+    const loggedInResponse = await fetch(`${req.protocol}://${req.get('host')}/auth/login`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(values),
