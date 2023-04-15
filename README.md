@@ -102,6 +102,7 @@ React app created to simulate a social media app, including dark/light mode, add
 ## Getting Started
 
 To visit the live version, <a href="https://mern-social-media-app-frontend.onrender.com/">click here.</a> *Currently still configuring*
+<br/>
 Use one of the test users to see the authenticated version:
  ```sh
    User: test2@test.test
