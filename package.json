@@ -23,6 +23,9 @@
     "mongoose": "^6.2.1",
     "validator": "^13.7.0"
   },
+  "engines": {
+    "node": ">=14.20.1 <15"
+  },
   "bugs": {
     "url": "https://github.com/LoryGlory/mern-social-media-app/issues"
   },
