@@ -72,7 +72,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://mern-social-media-app-xvus.vercel.app/)
+[![Product Name Screen Shot][product-screenshot]](https://mern-social-media-app-client.onrender.com/)
 
 React app created to simulate a social media app, including dark/light mode, adding/removing friends, adding comments, saving posts and viewing profiles.
 
@@ -101,7 +101,7 @@ React app created to simulate a social media app, including dark/light mode, add
 
 ## Getting Started
 
-To visit the live version, <a href="https://mern-social-media-app-frontend.onrender.com/">click here.</a> *Currently still configuring*
+To visit the live version, <a href="https://mern-social-media-app-client.onrender.com/">click here.</a> 
 <br/>
 Use one of the test users to see the authenticated version:
  ```sh
